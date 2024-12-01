@@ -1,0 +1,164 @@
+A continuación, se presenta una documentación en formato IEEE para el proyecto denominado **"actividad_DW"**. El contenido incluye portada, índice y detalles completos del desarrollo del proyecto.
+
+---
+
+## **Documento: Proyecto "actividad_DW"**
+
+### **1. Portada**
+
+---
+
+**Proyecto: actividad_DW**
+
+**Sistema de Inscripción a Cursos: "Orden Jedi - Aprendiz Padawan"**
+
+**Autor:** [Tu Nombre]
+
+**Materia:** Desarrollo Web
+
+**Institución:** [Nombre de tu Institución]
+
+**Fecha:** [Fecha de Entrega]
+
+---
+
+### **2. Índice**
+
+1. **Introducción**  
+    1.1. Objetivo del Proyecto  
+    1.2. Alcance  
+2. **Diseño del Sistema**  
+    2.1. Arquitectura del Sistema  
+    2.2. Descripción de la Base de Datos  
+3. **Implementación**  
+    3.1. Desarrollo del Frontend  
+    3.2. Desarrollo del Backend  
+4. **Validación y Pruebas**  
+    4.1. Escenarios de Pruebas  
+    4.2. Resultados Obtenidos  
+5. **Conclusión**  
+6. **Anexos**  
+    6.1. Código Fuente  
+    6.2. Estructura de Archivos  
+    6.3. Capturas de Pantalla  
+
+---
+
+### **1. Introducción**
+
+#### **1.1 Objetivo del Proyecto**
+El objetivo de este proyecto es desarrollar un sistema funcional de inscripción a cursos en línea denominado **"Orden Jedi - Aprendiz Padawan"**. El sistema permite a los usuarios registrarse, iniciar sesión e inscribirse en un curso introductorio sobre los fundamentos de la Fuerza. Este proyecto aplica las tecnologías PHP, MySQL, HTML y CSS, con Bootstrap para el diseño visual, asegurando una interfaz atractiva y funcional.
+
+#### **1.2 Alcance**
+El sistema está diseñado para:
+- Registrar nuevos usuarios mediante un formulario seguro.
+- Permitir el inicio de sesión con credenciales validadas.
+- Proporcionar una interfaz de inscripción al curso **"Aprendiz Padawan"**.
+- Mostrar confirmación de acciones y asegurar la persistencia de los datos en una base de datos relacional.
+
+---
+
+### **2. Diseño del Sistema**
+
+#### **2.1 Arquitectura del Sistema**
+El sistema sigue una arquitectura cliente-servidor con las siguientes características:
+- **Frontend:** Creado en HTML y estilizado con Bootstrap, utiliza formularios para el registro e inicio de sesión, asegurando una experiencia de usuario fluida.
+- **Backend:** Desarrollado en PHP, procesa las solicitudes del usuario (registro, inicio de sesión e inscripción) y las comunica con la base de datos.
+- **Base de Datos:** MySQL almacena la información del sistema, incluyendo usuarios registrados y sus inscripciones.
+
+#### **2.2 Descripción de la Base de Datos**
+La base de datos **"Orden_Jedi"** contiene las siguientes tablas:
+1. **`cursos`:** Define los cursos disponibles.  
+    - **id_curso** (INT, PK): Identificador único del curso.  
+    - **nombre_curso** (VARCHAR): Nombre del curso.  
+    - **descripcion** (TEXT): Descripción del curso.  
+
+2. **`usuarios`:** Almacena información de los usuarios.  
+    - **id_usuario** (INT, PK): Identificador único del usuario.  
+    - **nombre_usuario** (VARCHAR): Nombre del usuario.  
+    - **email** (VARCHAR): Correo electrónico del usuario.  
+    - **password** (VARCHAR): Contraseña cifrada.  
+
+3. **`inscripciones`:** Relaciona a los usuarios con los cursos inscritos.  
+    - **id_inscripcion** (INT, PK): Identificador único de la inscripción.  
+    - **id_curso** (INT, FK): Relación con la tabla `cursos`.  
+    - **id_usuario** (INT, FK): Relación con la tabla `usuarios`.
+
+---
+
+### **3. Implementación**
+
+#### **3.1 Desarrollo del Frontend**
+- El diseño utiliza **Bootstrap 5** para proporcionar una interfaz visual atractiva en colores púrpura y lila, representando el tema de la Orden Jedi.
+- Se crean tres páginas principales:
+  1. `index.php`: Página inicial que muestra opciones de registro, inicio de sesión y acceso al curso.
+  2. `login.php`: Formulario de inicio de sesión.
+  3. `registro.php`: Formulario de registro.
+
+#### **3.2 Desarrollo del Backend**
+- **PHP** se encarga de procesar las solicitudes de los usuarios:
+  - **Registro:** Inserta un nuevo usuario en la tabla `usuarios` con contraseñas cifradas.
+  - **Inicio de sesión:** Valida las credenciales contra los registros existentes en la base de datos.
+  - **Inscripción:** Relaciona al usuario autenticado con el curso en la tabla `inscripciones`.
+
+---
+
+### **4. Validación y Pruebas**
+
+#### **4.1 Escenarios de Pruebas**
+Se realizaron las siguientes pruebas para validar el sistema:
+1. Registro de un nuevo usuario con un nombre único y correo electrónico.
+2. Inicio de sesión exitoso con credenciales válidas.
+3. Manejo de errores al ingresar credenciales incorrectas.
+4. Inscripción al curso como usuario autenticado.
+
+#### **4.2 Resultados Obtenidos**
+Todas las pruebas se ejecutaron satisfactoriamente, verificando que el sistema maneja adecuadamente:
+- Datos duplicados.
+- Credenciales incorrectas.
+- Relación entre usuarios y cursos.
+
+---
+
+### **5. Conclusión**
+El proyecto **"actividad_DW"** cumple con los objetivos planteados, proporcionando un sistema funcional y visualmente atractivo para la inscripción a cursos. La combinación de tecnologías permite una experiencia robusta y escalable, lista para extenderse a otros cursos y funcionalidades futuras.
+
+---
+
+### **6. Anexos**
+
+#### **6.1 Código Fuente**
+El código fuente del proyecto se encuentra organizado en la estructura descrita en la sección de implementación.
+
+#### **6.2 Estructura de Archivos**
+```
+/Orden_Jedi
+│
+├── /css
+│   └── styles.css
+├── /php
+│   ├── procesar_login.php
+│   ├── procesar_registro.php
+│   └── inscripcion.php
+├── /public
+│   ├── index.php
+│   ├── login.php
+│   ├── registro.php
+│   └── logout.php
+└── /sql
+    └── Orden_Jedi.sql
+```
+
+#### **6.3 Capturas de Pantalla**
+1. Página principal:  
+   ![Página principal](#)
+2. Formulario de registro:  
+   ![Formulario de registro](#)
+3. Formulario de inicio de sesión:  
+   ![Formulario de inicio de sesión](#)
+4. Confirmación de inscripción:  
+   ![Confirmación de inscripción](#)
+
+---
+
+Si necesitas personalizar más la documentación o añadir elementos adicionales, ¡házmelo saber! 😊
